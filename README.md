@@ -23,6 +23,7 @@
 	直辖市的二级调整为市辖区辖县
 
 	城市省市三级选单
-	example/cityselect_json.html   
+	example/cityselect_3.html
+	调用json数据
 
 ![image](images/screen-02.jpg)
