@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<!--HTML5 doctype-->
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>省市三级选单</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+    <script type="text/javascript" charset="utf-8" src="./js/jquery-1.11.1.min.js"></script>
+    <script src="js/cityselect_json.js"></script>
+</head>
+
+<body>
+
+<div id="content" style="padding:10px;">
+    <h3>省市三级选单</h3>
+
+    <div>
+        <p>请选择省份或地区：</p>
+
+        <form action="" id="dealerSelect">
+            <table border="0" cellpadding="3" cellspacing="0">
+                <tr>
+                    <td>请选择省份</td>
+                    <td>请选择城市</td>
+                    <td>请选择地区</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <select name="province"></select>
+                    </td>
+                    <td>
+                        <select name="city"></select>
+                    </td>
+                    <td>
+                        <select name="county"></select>
+                    </td>
+                    <td><input type="button" value="确定" class="formButton" id="dealerSumbit"></td>
+                </tr>
+            </table>
+        </form>
+        <script>
+            $(document).ready(function () {
+                ewenx.CitySelect().init("#dealerSelect");
+            });
+
+            $("#dealerSumbit").bind("click", dealerSearch);
+            function dealerSearch(e) {
+                console.log({
+                    "provinceName": $("select[name='province']").val(), "cityName": $("select[name='city']").val(),
+                    "countyName": $("select[name='county']").val()
+                });
+                $(".minfo").html($("select[name='province']").val() + " " + $("select[name='city']").val() + " " + $("select[name='county']").val());
+            }
+
+        </script>
+    </div>
+
+    <div>
+        <p class="minfo">请选择你所在的省份或地区查询！</p>
+    </div>
+</div>
+
+
+</body>
+</html>
