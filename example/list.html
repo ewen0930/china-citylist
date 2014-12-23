@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<!--HTML5 doctype-->
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>省市三级选单</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+    <script type="text/javascript" charset="utf-8" src="./js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="./js/doT.js"></script>
+
+    <!-- doT 的模板 -->
+    <script id="doT" type="text/tmpl">
+        <table>
+            {{ for(var i in it.province) { }}
+                <tr><td> {{= i }}.{{=it.province[i].name}} </td><td> {{=it.province[i].zip}} </td></tr>
+                {{ val_city = it.province[i].city; }}
+                {{ for(var j in val_city) { }}
+                    <tr><td> ├─ {{=val_city[j].name}} </td><td> {{=val_city[j].zip}} </td></tr>
+                    {{ val_county = val_city[j].county; }}
+                    {{ for(var k in val_county) { }}
+                        <tr><td> │ ├─ {{=val_county[k].name}} </td><td> {{=val_county[k].zip}} </td></tr>
+                    {{ } }}
+                {{ } }}
+            {{ } }}
+        </table>
+    </script>
+
+</head>
+
+<body>
+
+<script>
+    $(document).ready(function () {
+        $.getJSON('js/city_data.json', function (data) {
+            initList(data);
+        });
+    });
+
+    function initList(data) {
+
+        sTime = new Date();
+        var outputDot = doT.template($("#doT").text())(data);
+        console.log("doT 对象模式： " + ((new Date()) - sTime));
+
+        $(".minfo").html(outputDot);
+    }
+
+</script>
+
+<div>
+    <p class="minfo"></p>
+</div>
+</div>
+
+
+</body>
+</html>

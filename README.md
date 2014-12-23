@@ -18,12 +18,16 @@
 
 ### 附上两个例子 ###
 
-	城市省市二级选单	
+	城市省市二级联动选单
 	example/cityselect.html
-	直辖市的二级调整为市辖区辖县
+	直辖市的二级选单调整为市辖区辖县
 
-	城市省市三级选单
+	城市省市三级联动选单
 	example/cityselect_3.html
+	调用json数据
+
+	城市省市列表
+	example/list.html
 	调用json数据
 
 ![image](images/screen-02.jpg)
