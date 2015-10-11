@@ -13,7 +13,8 @@
 
 	data/行政区划代码.xml
 	data/行政区划代码.json
-	data/area.xml    早期下载的一份数据
+	data/area.xml    	 早期下载的一份数据
+	data/city_taobao.js  淘宝提取的地址数据
 
 
 ### 附上两个例子 ###
@@ -29,5 +30,9 @@
 	城市省市列表
 	example/list.html
 	调用json数据
+
+	新增淘宝提取的地址库
+	example/taobao.html
+	调用 data/city_taobao.js
 
 ![image](images/screen-02.jpg)
